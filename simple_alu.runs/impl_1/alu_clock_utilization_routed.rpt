@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2.2 (win64) Build 4126759 Thu Feb  8 23:53:51 MST 2024
-| Date         : Sat Mar 16 20:12:44 2024
+| Date         : Sat Mar 16 20:41:54 2024
 | Host         : WIN-S1PVLSIN245 running 64-bit major release  (build 9200)
 | Command      : report_clock_utilization -file alu_clock_utilization_routed.rpt
 | Design       : alu

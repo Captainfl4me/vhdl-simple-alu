@@ -38,6 +38,7 @@ entity alu is
            btnL: in STD_LOGIC; -- And 
            btnR: in STD_LOGIC; -- Or 
            btnD: in STD_LOGIC; -- Xor 
+           btnC: in STD_LOGIC; -- Shift 
            led : out STD_LOGIC_VECTOR (7 downto 0);
            acr: out STD_LOGIC; -- Carry flag
            hc: out STD_LOGIC; -- Half-Carry flag
@@ -56,9 +57,11 @@ begin
            std_logic_vector(a and b) when btnL = '1' else
            std_logic_vector(a or b) when btnR = '1' else
            std_logic_vector(a xor b) when btnD = '1' else
+           '0'&b(7 downto 1) when btnC = '1' else
            (others => 'L');
     
-    hc <= half_sum_low(4);
-    avr <= (a(7) and b(7) and not half_sum_high(3)) or (not a(7) and not b(7) and half_sum_high(3));
-    acr <= half_sum_high(4);
+    hc <= half_sum_low(4) when btnU = '1' else '0';
+    avr <= (a(7) and b(7) and not half_sum_high(3)) or (not a(7) and not b(7) and half_sum_high(3)) when btnU = '1' else '0';
+    acr <= half_sum_high(4) when btnU = '1' else
+           b(0) when btnC = '1' else '0';
 end Behavioral;
